@@ -12,13 +12,8 @@ namespace AdventOfCode2022.Models
     /// <summary>
     /// The day 1 model.
     /// </summary>
-    internal class Day1Model
+    internal class Day1Model : BaseModel
     {
-        /// <summary>
-        /// The input lines.
-        /// </summary>
-        private readonly IList<string> inputLines;
-
         /// <summary>
         /// The result.
         /// </summary>
@@ -30,9 +25,8 @@ namespace AdventOfCode2022.Models
         /// <param name="inputLines">
         /// The input lines.
         /// </param>
-        public Day1Model(IList<string> inputLines)
+        public Day1Model(IList<string> inputLines) : base(inputLines)
         {
-            this.inputLines = inputLines;
         }
 
         /// <summary>
@@ -70,7 +64,7 @@ namespace AdventOfCode2022.Models
             var output = new List<int>();
 
             var sum = 0;
-            foreach (var line in inputLines)
+            foreach (var line in InputLines)
             {
                 if (string.IsNullOrWhiteSpace(line))
                 {
