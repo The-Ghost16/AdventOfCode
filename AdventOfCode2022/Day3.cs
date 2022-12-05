@@ -14,7 +14,7 @@ namespace AdventOfCode2022
     /// <summary>
     /// The day 2.
     /// </summary>
-    internal class Day2
+    internal class Day3
     {
         /// <summary>
         /// The execute.
@@ -24,11 +24,10 @@ namespace AdventOfCode2022
         /// </returns>
         internal async Task Execute()
         {
-            var input = await InputReader.ReadInput(2);
-            var model = new Day2Model(input);
+            var input = await InputReader.ReadInput(3);
+            var model = new Day3Model(input);
 
-            Console.WriteLine("Part 1: {0}", model.Rounds.Sum(r => r.Score));
-            Console.WriteLine("Part 2: {0}", model.RoundsPart2.Sum(r => r.Score));
+            Console.WriteLine("Part 1: {0}", model.CalculatePriorities());
         }
     }
 }

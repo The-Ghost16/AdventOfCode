@@ -26,6 +26,11 @@ namespace AdventOfCode2022.Models.Day2
         private readonly Shape player;
 
         /// <summary>
+        /// The result.
+        /// </summary>
+        private readonly Result result;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="Day2InputRound"/> class.
         /// </summary>
         /// <param name="opponent">
@@ -38,14 +43,29 @@ namespace AdventOfCode2022.Models.Day2
         {
             this.opponent = opponent;
             this.player = player;
-            var result = GetResult();
-            Score = (int)player + (int)result;
+            result = GetResult();
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Day2InputRound"/> class.
+        /// </summary>
+        /// <param name="opponent">
+        /// The opponent.
+        /// </param>
+        /// <param name="expectedResult">
+        /// The expected result.
+        /// </param>
+        public Day2InputRound(Shape opponent, Result expectedResult)
+        {
+            this.opponent = opponent;
+            result = expectedResult;
+            player = GetPlayerShape();
         }
 
         /// <summary>
         /// Gets the score.
         /// </summary>
-        public int Score { get; }
+        public int Score => (int)player + (int)result;
 
         /// <summary>
         /// The get result.
@@ -66,6 +86,27 @@ namespace AdventOfCode2022.Models.Day2
             }
 
             return Result.Win;
+        }
+
+        /// <summary>
+        /// The get player shape.
+        /// </summary>
+        /// <returns>
+        /// The <see cref="Shape"/>.
+        /// </returns>
+        private Shape GetPlayerShape()
+        {
+            if (result == Result.Draw)
+            {
+                return opponent;
+            }
+
+            if (result == Result.Loss)
+            {
+                return opponent == Shape.Rock ? Shape.Scissors : opponent - 1;
+            }
+
+            return opponent == Shape.Scissors ? Shape.Rock : opponent + 1;
         }
     }
 }
