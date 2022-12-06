@@ -12,13 +12,8 @@ namespace AdventOfCode2022.Models
     /// <summary>
     /// The day 1 model.
     /// </summary>
-    internal class Day1Model : BaseModel
+    internal class Day1Model : BaseModel<IList<int>>
     {
-        /// <summary>
-        /// The result.
-        /// </summary>
-        private IList<int> result = new List<int>();
-
         /// <summary>
         /// Initializes a new instance of the <see cref="Day1Model"/> class.
         /// </summary>
@@ -29,37 +24,31 @@ namespace AdventOfCode2022.Models
         {
         }
 
-        /// <summary>
-        /// Gets the total calories per elf.
-        /// </summary>
-        public IList<int> TotalCaloriesPerElf
+        /// <inheritdoc />
+        public override IList<int> CalculatePart1()
         {
-            get
+            var output = new List<int>();
+
+            var sum = 0;
+            foreach (var line in InputLines)
             {
-                if (result.Any())
+                if (string.IsNullOrWhiteSpace(line))
                 {
-                    return result;
+                    output.Add(sum);
+                    sum = 0;
+                    continue;
                 }
 
-                lock (result)
-                {
-                    if (result.Any() == false)
-                    {
-                        result = InputToTotalCalories();
-                    }
-                }
-
-                return result;
+                sum += int.Parse(line);
             }
+
+            output.Add(sum);
+
+            return output;
         }
 
-        /// <summary>
-        /// The input to total calories.
-        /// </summary>
-        /// <returns>
-        /// The <see cref="IList" />.
-        /// </returns>
-        private IList<int> InputToTotalCalories()
+        /// <inheritdoc />
+        public override IList<int> CalculatePart2()
         {
             var output = new List<int>();
 

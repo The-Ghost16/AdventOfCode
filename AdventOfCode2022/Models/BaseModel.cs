@@ -12,7 +12,10 @@ namespace AdventOfCode2022.Models
     /// <summary>
     /// The base model.
     /// </summary>
-    internal abstract class BaseModel
+    /// <typeparam name="T">
+    /// The type returned by the methods
+    /// </typeparam>
+    internal abstract class BaseModel<T>
     {
         /// <summary>
         /// The input lines.
@@ -20,7 +23,7 @@ namespace AdventOfCode2022.Models
         protected readonly IList<string> InputLines;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BaseModel"/> class.
+        /// Initializes a new instance of the <see cref="BaseModel{T}"/> class.
         /// </summary>
         /// <param name="inputLines">
         /// The input lines.
@@ -29,5 +32,21 @@ namespace AdventOfCode2022.Models
         {
             this.InputLines = inputLines;
         }
+
+        /// <summary>
+        /// The calculate part 1.
+        /// </summary>
+        /// <returns>
+        /// The <see cref="T"/>.
+        /// </returns>
+        public abstract T CalculatePart1();
+
+        /// <summary>
+        /// The calculate part 2.
+        /// </summary>
+        /// <returns>
+        /// The <see cref="T"/>.
+        /// </returns>
+        public abstract T CalculatePart2();
     }
 }

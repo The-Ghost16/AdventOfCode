@@ -14,7 +14,7 @@ namespace AdventOfCode2022
     /// <summary>
     /// The day 2.
     /// </summary>
-    internal class Day3
+    internal class Day4
     {
         /// <summary>
         /// The execute.
@@ -24,8 +24,8 @@ namespace AdventOfCode2022
         /// </returns>
         internal async Task Execute()
         {
-            var input = await InputReader.ReadInput(3);
-            var model = new Day3Model(input);
+            var input = await InputReader.ReadInput(4);
+            var model = new Day4Model(input);
 
             Console.WriteLine("Part 1: {0}", model.CalculatePart1());
             Console.WriteLine("Part 2: {0}", model.CalculatePart2());

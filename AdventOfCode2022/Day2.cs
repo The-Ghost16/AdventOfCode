@@ -27,8 +27,8 @@ namespace AdventOfCode2022
             var input = await InputReader.ReadInput(2);
             var model = new Day2Model(input);
 
-            Console.WriteLine("Part 1: {0}", model.Rounds.Sum(r => r.Score));
-            Console.WriteLine("Part 2: {0}", model.RoundsPart2.Sum(r => r.Score));
+            Console.WriteLine("Part 1: {0}", model.CalculatePart1().Sum(r => r.Score));
+            Console.WriteLine("Part 2: {0}", model.CalculatePart2().Sum(r => r.Score));
         }
     }
 }

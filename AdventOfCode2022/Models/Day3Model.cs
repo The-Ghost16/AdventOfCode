@@ -12,7 +12,7 @@ namespace AdventOfCode2022.Models
     /// <summary>
     /// The day 3 model.
     /// </summary>
-    internal class Day3Model : BaseModel
+    internal class Day3Model : BaseModel<int>
     {
         /// <inheritdoc />
         public Day3Model(IList<string> inputLines)
@@ -20,13 +20,8 @@ namespace AdventOfCode2022.Models
         {
         }
 
-        /// <summary>
-        /// The calculate priorities.
-        /// </summary>
-        /// <returns>
-        /// The <see cref="int"/>.
-        /// </returns>
-        public int CalculatePriorities()
+        /// <inheritdoc />
+        public override int CalculatePart1()
         {
             var sum = 0;
             foreach (var inputLine in InputLines)
@@ -58,13 +53,8 @@ namespace AdventOfCode2022.Models
             return sum;
         }
 
-        /// <summary>
-        /// The calculate badges.
-        /// </summary>
-        /// <returns>
-        /// The <see cref="int"/>.
-        /// </returns>
-        public int CalculateBadges()
+        /// <inheritdoc />
+        public override int CalculatePart2()
         {
             var sum = 0;
             for (var i = 0; i < InputLines.Count; i += 3)

@@ -27,11 +27,11 @@ namespace AdventOfCode2022
             var input = await InputReader.ReadInput(1);
             var model = new Day1Model(input);
 
-            Console.WriteLine("Part 1: {0}", model.TotalCaloriesPerElf.Max());
+            Console.WriteLine("Part 1: {0}", model.CalculatePart1().Max());
 
             Console.WriteLine(
                 "Part 2: {0}",
-                model.TotalCaloriesPerElf.OrderByDescending(x => x).Take(3).Sum());
+                model.CalculatePart2().OrderByDescending(x => x).Take(3).Sum());
         }
     }
 }
