@@ -57,5 +57,37 @@ namespace AdventOfCode2022.Models
 
             return sum;
         }
+
+        /// <summary>
+        /// The calculate badges.
+        /// </summary>
+        /// <returns>
+        /// The <see cref="int"/>.
+        /// </returns>
+        public int CalculateBadges()
+        {
+            var sum = 0;
+            for (var i = 0; i < InputLines.Count; i += 3)
+            {
+                var line1 = InputLines[i].ToCharArray();
+                var line2 = InputLines[i + 1].ToCharArray();
+                var line3 = InputLines[i + 2].ToCharArray();
+
+                var chars = line1.Intersect(line2).Intersect(line3).ToArray();
+
+                if (chars.Length == 1)
+                {
+                    var removable = char.IsUpper(chars[0]) ? 38 : 64;
+                    var index = char.ToUpper(chars[0]) - removable;
+                    sum += index;
+                }
+                else
+                {
+                    Console.WriteLine("NOT VALID!!!!");
+                }
+            }
+
+            return sum;
+        }
     }
 }

@@ -28,6 +28,7 @@ namespace AdventOfCode2022
             var model = new Day3Model(input);
 
             Console.WriteLine("Part 1: {0}", model.CalculatePriorities());
+            Console.WriteLine("Part 2: {0}", model.CalculateBadges());
         }
     }
 }
