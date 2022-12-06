@@ -23,13 +23,27 @@ namespace AdventOfCode2022.Models
         /// <inheritdoc />
         public override int CalculatePart1()
         {
-            throw new NotImplementedException();
+            var count = 0;
+            foreach (var inputLine in InputLines)
+            {
+                var parts = inputLine.Split(',');
+                var numbers1 = parts[0].Split('-').Select(x => int.Parse(x)).ToArray();
+                var numbers2 = parts[1].Split('-').Select(x => int.Parse(x)).ToArray();
+
+                if ((numbers1[0] <= numbers2[0] && numbers1[1] >= numbers2[1])
+                    || (numbers2[0] <= numbers1[0] && numbers2[1] >= numbers1[1]))
+                {
+                    count++;
+                }
+            }
+
+            return count;
         }
 
         /// <inheritdoc />
         public override int CalculatePart2()
         {
-            throw new NotImplementedException();
+            return 0;
         }
     }
 }

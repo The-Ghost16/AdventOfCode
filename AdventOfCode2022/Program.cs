@@ -26,3 +26,11 @@ var day3 = new Day3();
 await day3.Execute();
 Console.WriteLine("Finished day 3!");
 Console.WriteLine("---------------------------------------------------------");
+
+
+Console.WriteLine("---------------------------------------------------------");
+Console.WriteLine("Running day 4!");
+var day4 = new Day4();
+await day4.Execute();
+Console.WriteLine("Finished day 4!");
+Console.WriteLine("---------------------------------------------------------");
