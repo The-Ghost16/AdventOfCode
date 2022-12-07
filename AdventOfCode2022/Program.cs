@@ -50,3 +50,11 @@ var day6 = new Day6();
 await day6.Execute();
 Console.WriteLine("Finished day 6!");
 Console.WriteLine("---------------------------------------------------------");
+
+
+Console.WriteLine("---------------------------------------------------------");
+Console.WriteLine("Running day 7!");
+var day7 = new Day7();
+await day7.Execute();
+Console.WriteLine("Finished day 7!");
+Console.WriteLine("---------------------------------------------------------");
