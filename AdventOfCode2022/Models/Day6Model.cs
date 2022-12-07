@@ -23,13 +23,42 @@ namespace AdventOfCode2022.Models
         /// <inheritdoc />
         public override int CalculatePart1()
         {
-            throw new NotImplementedException();
+            return FindMarker(4);
         }
 
         /// <inheritdoc />
         public override int CalculatePart2()
         {
-            throw new NotImplementedException();
+            return FindMarker(14);
+        }
+
+        /// <summary>
+        /// The find marker.
+        /// </summary>
+        /// <param name="length">
+        /// The length.
+        /// </param>
+        /// <returns>
+        /// The <see cref="int"/>.
+        /// </returns>
+        private int FindMarker(int length)
+        {
+            var onlyLine = InputLines[0];
+
+            var index = 0;
+            do
+            {
+                var chars = onlyLine.Skip(index).Take(length);
+                if (chars.Distinct().Count() == length)
+                {
+                    return index + length;
+                }
+
+                index++;
+            }
+            while (index < onlyLine.Length - length);
+
+            return -1;
         }
     }
 }
